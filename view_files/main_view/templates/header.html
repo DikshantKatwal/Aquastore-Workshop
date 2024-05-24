@@ -1,0 +1,56 @@
+<!-- templates/header.html -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'header_style.css' %}">
+
+<header class="header">
+    <div class="logo-container">
+        <img class="logo-img" src="{% static 'img/logo1.png' %}">
+        <h2>Logo</h2>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-item">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="type-icon"><i class="flaticon-home"></i></span>
+                        <span class="type-text">Dashboard</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-item">
+            <ul>
+                <li>
+                    <a href="http://localhost:8000/admin/">
+                        <span class="type-icon"><i class="flaticon-home"></i></span>
+                        <span class="type-text">Fish</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-item">
+            <ul>
+                <li>
+                    <a href="http://localhost:8000/admin/">
+                        <span class="type-icon"><i class="flaticon-home"></i></span>
+                        <span class="type-text">Accessories</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="nav-item">
+                <ul>
+                    <li>
+                        <a href="http://localhost:8000/admin/">
+                            <span class="type-icon"><i class="flaticon-home"></i></span>
+                            <span class="type-text">logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+</header>

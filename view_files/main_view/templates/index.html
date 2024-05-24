@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static%}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'dashboard_sytle.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class='container'>
+            <div class="header-col">
+                {% include 'main_view/templates/header.html' %}
+            </div>
+            <div class="main-col">
+                <div class="account">
+                    <h2>Hello, Dikshant Katwal</h2>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
+
+  

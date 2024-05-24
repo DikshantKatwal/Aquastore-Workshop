@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static%}
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'sytle.css' %}">
+
+</head>
+<body>
+<div class="container">
+<form method="post" action="{{ app_path }}">
+	<div class="header">
+		<h1>LOG IN</h1>
+	</div>
+	{% csrf_token %}
+	<div class="form">
+		<label>USERNAME</label>
+		<input class="input" name="username" type="text" placeholder="username"/>
+
+	</div>
+	<div class="form">
+		<label>PASSWORD</label>
+		<input class="input" name='password' type="password" placeholder="password" />
+
+	</div>
+	<div class="action-container">
+		<!-- <a class="login-btn" onclick="loginsubmit" href="#">LOG IN</a> -->
+		<input type="submit" class="login-btn" value="LOG IN">
+		<a class="forgot-acc" href="'#">forgot your password ?</a>
+	</div>
+	</form>
+</div>
+</body>
+<script>
+function loginsubmit(){
+	console.log('submitted the button')
+}
+</script>
+</html>
