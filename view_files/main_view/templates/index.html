@@ -1,31 +1,163 @@
 <!DOCTYPE html>
 {% load static%}
+{% load static %}
+{% load i18n %}
+{% load view_files_main_view_template_tags %} 
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>{% block title %}Admin-Dashboard{% endblock %}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'dashboard_sytle.css' %}">
+        <link rel="stylesheet" href="{% static '../static/css/fish/index.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
     </head>
     <body>
-        <div class='container'>
-            <div class="header-col">
+        <div class='containers'>
+            
+            <div class="header-col" id="headerCol">
+            
+        
                 {% include 'main_view/templates/header.html' %}
             </div>
             <div class="main-col">
                 <div class="account">
-                    <h2>Hello, Dikshant Katwal</h2>
+                    <button class="navToggle" id="navToggle">
+                        ☰
+                    </button>
+                <div class="logo-main" id="logoMain">
+                    <h2>Sunday</h2>
                 </div>
+                </div>
+                
+                    {% block content %}
+                    <h1 class="dashboard-head">DashBoard</h1>
+                    <div class="contents">
+                        
+                        <div class="col1">
+                            <!-- <h3>Total Fish</h3>
+                            <p>Total sold</p>
+                            <p></p> -->
+                            <table >
+                                <tr>
+                                    <th>
+                                        <p>Total Fish: &nbsp;</p>
+                                        <p>Rs.1000</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p>Total Accessories: &nbsp;</p>
+                                        <p>Rs.1000</p>
+                                    </th>
+                                </tr>
+                            </table>
+                            <table class="warning-table">
+                                <tr>
+                                    <th>
+                                        <p>Top customer: &nbsp;</p>
+                                        <p>Rs.1000</p>
+                                    </th>
+                                </tr>
+                               
+                            </table>
+                        </div>
+                        <div class="col2">
+                            <table class="success-table">
+                                <tr>
+                                    <th>
+                                        <p>Total Sales: &nbsp;</p>
+                                        <p>Rs.1000</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p>Best Selling Fish: &nbsp;</p>
+                                        <p>Rs.1000</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p>Best Selling Accessories: &nbsp;</p>
+                                        <p>Rs.1000</p>
+                                    </th>
+                                </tr>
+                            </table>
+
+                            <table class="warning-table">
+                                <tr>
+                                    <th>
+                                        <p>Low stock fish: &nbsp;</p>
+                                        <p>Rs.1000</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p>Low stock accessories: &nbsp;</p>
+                                        <p>Rs.1000</p>
+                                    </th>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                    </div>
+                    
+                    
+                    {% endblock %}
+                
             </div>
 
         </div>
     </body>
+    <script>
+        function toggleHeader() {
+            const headerCol = document.getElementById('headerCol');
+            const logomain = document.getElementById('logoMain');
+
+            if (window.innerWidth < 768) {
+                if (headerCol.style.width === "0px" || headerCol.style.opacity === "0.8") {
+                    console.log('hello')
+                    headerCol.style.width = "300px"; // Expand the navigation bar
+            headerCol.style.opacity = "1";     // Make it visible
+            logomain.style.opacity = "0";   // Hide the logo
+    } else {
+        console.log('ello')
+        headerCol.style.width = "0px";  // Collapse the navigation bar
+            headerCol.style.opacity = "1";     // Make it invisible
+            logomain.style.opacity = "1";  // Show the logo
+        
+    }
+            }
+        }
+
+        document.getElementById('navToggle').addEventListener('click', toggleHeader);
+
+        function adjustMenuDisplay() {
+            const logomain = document.getElementById('logoMain');
+            const headerCol = document.getElementById('headerCol');
+            if (window.innerWidth >= 768) {
+                headerCol.style.width = "300px";  // Collapse the navigation bar
+                headerCol.style.opacity = "1";
+                logomain.style.display = "none";
+            } else {
+                headerCol.style.width = "0px";  // Collapse the navigation bar
+                headerCol.style.opacity = "0";
+                logomain.style.display = "block";
+            }
+        }
+
+        window.addEventListener('resize', adjustMenuDisplay);
+        window.addEventListener('load', adjustMenuDisplay);
+
+        
+    </script>
+
 </html>
 
   

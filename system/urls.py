@@ -20,11 +20,13 @@ from system import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.auth import views as auth_views, logout
 urlpatterns = [
-    path('', include('administrations.urls')),
     path('admin/', include('administrations.urls')),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
+    path( "logout/", auth_views.LogoutView.as_view(), name='logout'),
+    path('', include('frontend.urls')),
+
+
 
 ]
 
