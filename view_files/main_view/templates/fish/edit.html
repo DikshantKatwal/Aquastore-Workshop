@@ -1,0 +1,89 @@
+{% extends '../index.html' %}
+{% load static %}
+
+{% block title %}Fishes{% endblock %}
+
+{% block content %}
+
+<div class="content-header">
+    <h2 class="content-logo">Add Fish</h2>
+</div>
+<div class="add-fish-container">
+    <form id='fishForm' enctype="multipart/form-data" method="post" novalidate="novalidate" action="{% url 'store_fish' %}">
+        <div class="flex-box">
+            <div>
+                {% csrf_token %}
+                <div class="form-content">
+                    <input value="{{fish.id}}" name="id" type="hidden"/>
+                    <label class="label">Name</label>
+                    <input class="input" value="{{fish.name}}" name="Name" type="text" placeholder="Name"/>
+                </div>
+                <div class="form-content">
+                    <label class="label">Description</label>
+                    <textarea class="input1" name="Description" placeholder="Good for beginners.">{{fish.description}}
+                    </textarea>
+                </div>
+                <div class="form-content">
+                    <label class="label">Location</label>
+                    <input class="input" name="Location" value="{{fish.location}}" type="text" placeholder="Thailand"/>
+                </div>
+                <div class="form-content">
+                    <label class="label">Price</label>
+                    <input class="input" name="Price" value="{{fish.price}}"  type="number" placeholder="200"/>
+                </div>
+                <div class="form-content">
+                    <label class="label">Quantity</label>
+                    <input class="input" name="Quantity" value="{{fish.quantity}}"  type="number" placeholder="10"/>
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="mb-4 d-">
+                    {% if fish.image %}
+                    <img id="selectedImage" src="{{fish.image.url}}"
+                    alt="example placeholder" style="width: 130px; height: 130px;" class="image" />
+                    {% else %}
+                    <img id="selectedImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3JM3SWIpLImNLI0MLOKkFNVmRbxT-yrtlj97c7YJwmw&s"
+                    alt="example placeholder" style="width: 130px; height: 130px;" class="image" />
+                    {% endif %}
+                    <div data-mdb-ripple-init class="btn btn-dark btn-rounded" style="background-color: #0e3e5f;">
+                        <label class=" text-white m-1" for="customFile1">Choose file</label>
+                        <input type="file" name="Image" class="form-control d-none" id="customFile1" onchange="displaySelectedImage(event, 'selectedImage')" />
+                    </div>
+                </div>
+        
+                <div class="btn-container" >
+                    <a href="#" class="save-btn" onclick="document.getElementById('fishForm').submit(); return false;">Save Fish</a>
+
+                </div>
+                
+            </div>
+        </div>
+        
+
+    </form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function displaySelectedImage(event, elementId) {
+    const selectedImage = document.getElementById(elementId);
+    const fileInput = event.target;
+
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            selectedImage.src = e.target.result;
+        };
+
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+}
+</script>
+
+
+{% endblock %}

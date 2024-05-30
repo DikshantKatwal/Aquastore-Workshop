@@ -5,25 +5,131 @@ body, html{
     font-size: 1rem;
 
 }
+
 h2{
 	margin: 0px;
+    font-size: 10%;
 }
-.container{
-    width: 100%;
+
+.containers{
     height: 100%;
-    background-color: aliceblue;
     display: flex;
 }
 .header-col{
-    min-width: 300px;
-
+    width: 300px;
+    background-color: #104367;
+    
 }
 .main-col{
+    font-family: "Oswald", sans-serif;
     width: 100%;
+    height: 100%;
     border-radius: 2px;
+    overflow: hidden;
 }
 .account{
-    padding: 8px 10px;
-    border-bottom: 2px double rgb(189, 189, 189);
+    background-color: #104367;
+    height: 51px;
+    padding: 6px 10px;
+    border-bottom: 2px double #0c304b;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+   
+}
+.navToggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    border-right: 1px solid;
+    color: aliceblue;
+    position: absolute;
+    left: 0px;
+}
+.logo-main{
+    position: absolute;
+    display: inline-block;
+    padding: 10px;
+    transition: max-width 0.5s ease, opacity 0.5s ease;
+}
+
+.contents{
+    height: 80%;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+.col1, .col2{
+    background-color: white;
+    height: 350px;
+    width: 550px;
+    margin: 20px 10px;
+    border-radius: 10px;
+    border: 5px #0c304b solid;
+    font-size: 25px;
+}
+.warning-table{
+    color: rgb(193, 28, 28);
+}
+.success-table{
+    color: rgb(19, 236, 34);
+}
+.col1{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+   
+}
+.col2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.col1 table, .col2 table{
+    width: 100%;
+    margin: 5px;
+}
+
+.dashboard-head{
+    padding-left: 20px;
+    box-shadow: 5px 7px 9px gray;
+}
+
+.col1  th,.col2  th {
+    display: flex; /* Horizontal alignment */
+    padding-bottom: 35px;
+    border-bottom: 1px solid black;
+    margin: 4px 10px;
+    font-weight: 400;
+    height: 30px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navToggle {
+        display: block;
+    }
+
+    .header-col {
+        width: 0;
+        opacity: 0;
+        overflow: hidden; /* Ensures content is hidden when collapsed */
+        transition: max-width 0.5s ease, opacity 0.5s ease;
+    }
+    .col1, .col2{
+        background-color: white;
+        height: 300px;
+        margin: 20px 20px;
+        border-radius: 10px;
+        border: 5px #0c304b solid;
+    }
+ 
 }

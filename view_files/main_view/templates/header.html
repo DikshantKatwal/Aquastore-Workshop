@@ -2,55 +2,57 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'header_style.css' %}">
 
-<header class="header">
-    <div class="logo-container">
-        <img class="logo-img" src="{% static 'img/logo1.png' %}">
+<header class="headers">
+
+    <div class="logo-containers">
+        <img class="logo-imgs" src="{% static 'img/logo1.png' %}">
         <h2>Logo</h2>
     </div>
-    <div class="nav-bar">
-        <div class="nav-item">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="type-icon"><i class="flaticon-home"></i></span>
-                        <span class="type-text">Dashboard</span>
+    <div class="nav-bars">
+        
+        <div class="nav-items">
+                    <a class='nav-btns' href="{% url 'admin_index' %}">
+                        Dashboard
                     </a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-item">
-            <ul>
-                <li>
-                    <a href="http://localhost:8000/admin/">
-                        <span class="type-icon"><i class="flaticon-home"></i></span>
+                    <a class='nav-btns' href="{% url 'fish_index' %}">
                         <span class="type-text">Fish</span>
                     </a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-item">
-            <ul>
-                <li>
-                    <a href="http://localhost:8000/admin/">
+                    
+                    <a class='nav-btns' href="{% url 'accessories_index' %}">
                         <span class="type-icon"><i class="flaticon-home"></i></span>
                         <span class="type-text">Accessories</span>
                     </a>
-                </li>
-            </ul>
+                    <a class='nav-btns' href="{% url 'site_settings_index' %}">
+                        <span class="type-icon"><i class="flaticon-home"></i></span>
+                        <span class="type-text">Settings</span>
+                    </a>
+             
+                    <form id='logoutForm' action="{% url 'logout' %}" method="POST">
+                        {% csrf_token %}
+                    
+                    </form>
+         
         </div>
-        <div class="footer">
-            <div class="nav-item">
-                <ul>
-                    <li>
-                        <a href="http://localhost:8000/admin/">
-                            <span class="type-icon"><i class="flaticon-home"></i></span>
-                            <span class="type-text">logout</span>
-                        </a>
-                    </li>
-                </ul>
+      
+        <div class="footers">
+            <div class="nav-items">
+                        <a class='nav-btns' href="#" class="submit-link" id="submitLink">Log out</a>
             </div>
         </div>
+       
     </div>
     
+        
+    <script>
+        document.getElementById('submitLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+            document.getElementById('logoutForm').submit(); // Submit the form
+        });
+
+  
+</script>
     
+   
 </header>
+
+
