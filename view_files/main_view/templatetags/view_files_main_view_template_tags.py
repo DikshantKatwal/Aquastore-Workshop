@@ -4,6 +4,7 @@ from datetime import datetime
 # Depending on your django version, `reverse` and `NoReverseMatch` has been moved.
 # From django 2.0 they've been moved to `django.urls`
 from fish.models import Fish
+from site_settings.models import SiteSetting
 
 try:
     from django.urls import reverse, NoReverseMatch
@@ -25,7 +26,7 @@ MAX_LENGTH_BOOTSTRAP_COLUMN = 12
 def fetch_setting(context, key):
     try:
         request = context.get('request')
-        obj = Fish.objects.get(id=key)
-        return obj.name
-    except Fish.DoesNotExist:
+        obj = SiteSetting.objects.get(key=key)
+        return obj.value
+    except SiteSetting.DoesNotExist:
         return ''

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load static%}
 {% load static %}
 {% load i18n %}
 {% load view_files_main_view_template_tags %} 
@@ -26,11 +25,12 @@
         
                 {% include 'main_view/templates/header.html' %}
             </div>
+            <button class="navToggle" id="navToggle">
+                ☰
+            </button>
             <div class="main-col">
                 <div class="account">
-                    <button class="navToggle" id="navToggle">
-                        ☰
-                    </button>
+                    
                 <div class="logo-main" id="logoMain">
                     <h2>Sunday</h2>
                 </div>
@@ -47,14 +47,26 @@
                             <table >
                                 <tr>
                                     <th>
-                                        <p>Total Fish: &nbsp;</p>
-                                        <p>Rs.1000</p>
+                                        <p>Total Fish Species: &nbsp;</p>
+                                        <p>{{fish_count}}</p>
                                     </th>
                                 </tr>
                                 <tr>
                                     <th>
-                                        <p>Total Accessories: &nbsp;</p>
-                                        <p>Rs.1000</p>
+                                        <p>Total Fish: &nbsp;</p>
+                                        <p>{{total_fish}}</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p>Total Accessories Type: &nbsp;</p>
+                                        <p>{{accessories_count}}</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <p>Total Accessories quantity: &nbsp;</p>
+                                        <p>{{total_accessories}}</p>
                                     </th>
                                 </tr>
                             </table>
@@ -119,20 +131,22 @@
         function toggleHeader() {
             const headerCol = document.getElementById('headerCol');
             const logomain = document.getElementById('logoMain');
-
+            const navToggle = document.getElementById('navToggle');
             if (window.innerWidth < 768) {
                 if (headerCol.style.width === "0px" || headerCol.style.opacity === "0.8") {
                     console.log('hello')
                     headerCol.style.width = "300px"; // Expand the navigation bar
             headerCol.style.opacity = "1";     // Make it visible
-            logomain.style.opacity = "0";   // Hide the logo
+            logomain.style.opacity = "0"; 
+            navToggle.style.display = "none"  // Hide the logo
     } else {
-        console.log('ello')
+        
         headerCol.style.width = "0px";  // Collapse the navigation bar
             headerCol.style.opacity = "1";     // Make it invisible
             logomain.style.opacity = "1";  // Show the logo
-        
+            
     }
+    
             }
         }
 
@@ -155,6 +169,32 @@
         window.addEventListener('resize', adjustMenuDisplay);
         window.addEventListener('load', adjustMenuDisplay);
 
+        // Add event listener to the div with class "main-col"
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainCol = document.querySelector('.main-col');
+            if (mainCol) {
+                
+                mainCol.addEventListener('click', headeroff);
+          
+                
+            }
+        });
+
+        function headeroff() {
+            console.log('clickesello')
+            const headerCol = document.getElementById('headerCol');
+            const logomain = document.getElementById('logoMain');
+            const navToggle = document.getElementById('navToggle');
+
+            headerCol.style.width = "0px";  // Collapse the navigation bar
+            headerCol.style.opacity = "1";     // Make it invisible
+            logomain.style.opacity = "1";  // Show the logo
+            navToggle.style.display = "block"
+        }
+    
+            
+        
         
     </script>
 
