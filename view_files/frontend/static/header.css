@@ -9,6 +9,7 @@ a{
     justify-content: space-between;
     padding: 0px 20px;
     align-items: center;
+    box-shadow:2px 6px 4px rgb(30, 34, 36);
 }
 .logo{
     font-size: 30px;
