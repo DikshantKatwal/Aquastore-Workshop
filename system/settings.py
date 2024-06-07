@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'frontend',
     'fish',
     'accessories',
+    'site_settings'
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'view_files/main_view/static'),
+    os.path.join(BASE_DIR, 'view_files/frontend/static'),
 ]
 
 LOGOUT_REDIRECT_URL = "/login"

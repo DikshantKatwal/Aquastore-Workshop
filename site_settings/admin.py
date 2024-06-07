@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from system.decorators import unauthenticated_user
+from .models import SiteSetting
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 # Register your models here.
 
 @unauthenticated_user
@@ -8,18 +11,11 @@ def index(request):
 
 
 def add(request):
-    if request.method =='POST':
-        print(request.POST)
-        companyname= request.POST.get('Name')
-        mobile= request.POST.get('Mobile')
-        Email= request.POST.get('Email')
-        facebook_url= request.POST.get('Facebook')
-        instagram_url= request.POST.get('Instagram')
-        country= request.POST.get('Country')
-        city= request.POST.get('City')
-        street= request.POST.get('Street')
-        companyname_id = request.user.id
-        print(companyname_id)
-        return index(request)
-    else:
-        return index(request)
+    SiteSetting.truncate()
+    form_data = request.POST
+    data_dict = form_data.dict()
+    for key, value in data_dict.items():
+        site_setting = SiteSetting(key=key, value=value)
+        site_setting.save()
+    messages.success(request, 'Site setting changed successfully')
+    return HttpResponseRedirect('/admin/site_settings')

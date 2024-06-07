@@ -16,53 +16,42 @@
                 {% csrf_token %}
                 <div class="form-content">
                     <label class="label">Company Name</label>
-                    <input class="input" name="Name" type="text" placeholder="Lorem Pvt Ltd."/>
+                    <input class="input" name="Name" type="text" value="{% fetch_setting 'Name' %}" placeholder="Lorem Pvt Ltd."/>
                 </div>
                 <div class="form-content">
                     <label class="label">Mobile Number</label>
-                    <textarea class="input1" name="Mobile" placeholder="9840381111"></textarea>
+                    <input class="input" name="Mobile" type="text" value="{% fetch_setting 'Mobile' %}" placeholder="Lorem Pvt Ltd."/>
                 </div>
                 <div class="form-content">
                     <label class="label">Email</label>
-                    <input class="input" name="Email" type="email" placeholder="lorem@gmail.com"/>
+                    <input class="input" name="Email" type="email" value="{% fetch_setting 'Email' %}" placeholder="lorem@gmail.com"/>
                 </div>
                 <div class="form-content">
                     <label class="label">FaceBook URL</label>
-                    <input class="input" name="Facebook" type="text" placeholder="facebookurl"/>
+                    <input class="input" name="Facebook" type="text" value="{% fetch_setting 'Facebook' %}" placeholder="facebookurl"/>
                 </div>
                 <div class="form-content">
                     <label class="label">Instagram URL</label>
-                    <input class="input" name="Instagram" type="text" placeholder="Instagramurl"/>
+                    <input class="input" name="Instagram" type="text" value="{% fetch_setting 'Instagram' %}" placeholder="Instagramurl"/>
                 </div>
                 <div class="form-content">
                     <label class="label">Country</label>
-                    <input class="input" name="Country" type="text" placeholder="ex- Nepal"/>
+                    <input class="input" name="Country" type="text" value="{% fetch_setting 'Country' %}" placeholder="ex- Nepal"/>
                 </div>
                 <div class="form-content">
                     <label class="label">City</label>
-                    <input class="input" name="City" type="text" placeholder="ex- Kathmandu"/>
+                    <input class="input" name="City" type="text" value="{% fetch_setting 'City' %}" placeholder="ex- Kathmandu"/>
                 </div>
                 <div class="form-content">
                     <label class="label">Street</label>
-                    <input class="input" name="Street" type="text" placeholder="ex - Jhamsikhel"/>
+                    <input class="input" name="Street" value="{% fetch_setting 'Street' %}" type="text" placeholder="ex - Jhamsikhel"/>
                 </div>
             </div>
-            <div class="image-container">
-                <div class="mb-4 d-">
-                    <img id="selectedImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3JM3SWIpLImNLI0MLOKkFNVmRbxT-yrtlj97c7YJwmw&s"
-                    alt="example placeholder" style="width: 130px; height: 130px;" class="image" />
-                    <div data-mdb-ripple-init class="btn btn-dark btn-rounded" style="background-color: #0e3e5f;">
-                        <label class=" text-white m-1" for="customFile1">Choose file</label>
-                        <input type="file" name="Image" class="form-control d-none" id="customFile1" onchange="displaySelectedImage(event, 'selectedImage')" />
-                    </div>
-                </div>
-                <div class="btn-container" >
-                    <a href="#" class="save-btn" onclick="document.getElementById('fishForm').submit(); return false;">Save Details</a>
-        
-                </div>
-                
-                
+            <div class="btn-container" >
+                <a href="#" class="save-btn" onclick="document.getElementById('fishForm').submit(); return false;">Save Details</a>
+    
             </div>
+            
             
         </div>
         

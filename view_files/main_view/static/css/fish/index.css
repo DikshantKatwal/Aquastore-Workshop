@@ -81,7 +81,6 @@
     width: 350px;
 }
 .flex-box{
-    display: flex;
     height: 100%;
     flex-wrap: wrap;
 }
@@ -173,6 +172,11 @@ form{
         box-shadow: 2px;
         box-shadow: 5px 7px 9px gray;
         border-radius: 10px;
+    }
+    .flex-box{
+        height: 70%;
+        flex-wrap: wrap;
+        min-width: 280px;
     }
  
 }

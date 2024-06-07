@@ -1,0 +1,67 @@
+<div class="navbar">
+    <div class="logo">
+        LOGO
+    </div>
+
+        <nav class="contents">
+            <ul class="nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                
+            </ul>
+            <div class="dropdown">
+                <button class="dropbtn"id="navToggle">
+                    ☰&nbsp;  &nbsp;NAV BAR
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Home</a>
+                  <a href="#">About</a>
+                  <a href="#">Services</a>
+                  <a href="#">Contact</a>
+                  <a href="#">Log</a>
+                </div>
+              </div> 
+        </nav>
+
+</div>
+<script>
+    const navToggle = document.getElementById('navToggle');
+    const dropdownNav = document.querySelector('.dropdown-content');
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        
+        navToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            if (dropdownNav.style.display === "flex") {
+                dropdownNav.style.display = "none";
+            } else {
+                dropdownNav.style.display = "flex";
+
+            }
+        });
+    });
+
+
+    function adjustMenuDisplay() {
+            if (window.innerWidth >= 768) {
+                dropdownNav.style.display = "none";
+            } else {
+                dropdownNav.style.display = "none";
+            }
+        }
+
+        window.addEventListener('resize', adjustMenuDisplay);
+        window.addEventListener('load', adjustMenuDisplay);
+
+    document.addEventListener('DOMContentLoaded', function() {
+            const mainCol = document.querySelector('.main-col');
+            if (mainCol) {
+                
+                mainCol.addEventListener('click', headeroff);
+          
+                
+            }
+        });
+</script>

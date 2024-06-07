@@ -1,0 +1,103 @@
+
+{% extends './index.html' %}
+{% block title %}Home{% endblock %}
+{% load static %}
+{% block content %}
+<div>
+<div class="main-content">
+    <div class="banner-text">
+        <h1> Goto Admin Site</h1>
+        <a href="{% url 'admin_index'%}"> click here</a>
+        <p>
+            <b>Lorem ipsum dolor,</b>
+            <br>
+            <br>
+            sit amet consectetur adipisicing elit. 
+            Debitis placeat veritatis quam velit atque facere error saepe, 
+            blanditiis voluptatum illum ea provident. Illo dolorum animi numquam perferendis, 
+            magnam nesciunt nisi.
+            <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur inventore, 
+            esse, ab suscipit possimus omnis laboriosam perspiciatis error eos ducimus nisi officia 
+            ea dicta fugit ipsum similique explicabo aliquid deserunt.
+        </p>
+    </div>
+    <div class="img-container">
+        <img class="banner-img" src="{% static '../static/img/banner.jpg' %}"/>
+    </div>
+</div> 
+<div class="mid-content-header">
+    <h1> QWERTY  </h1>
+</div>
+
+    <div class="fish-contents">
+        {% for fish in fishes %}
+        <div class="card">
+            <div class="image">
+                <img class="fish-img" src="{{fish.image.url}}"/>
+            </div>
+            <div class="info">
+                <p>{{fish.name}}</p>
+            </div>
+            <div class="shop-now">
+                <a href="{% url 'admin_index'%}"> Shop</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mid-content-header">
+        <h1> Accessories  </h1>
+    </div>
+    <div class="fish-contents">
+        {% for accessory in accessories %}
+        <div class="card">
+            <div class="image">
+                <img class="fish-img" src="{{accessory.image.url}}"/>
+            </div>
+            <div class="info">
+                <p>{{accessory.name}}</p>
+            </div>
+            <div class="shop-now">
+                <a href="{% url 'admin_index'%}"> Shop</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mid-content-header">
+        <h1> Contact Us  </h1>
+    </div>
+    <div class="contact-us-container">
+        <form>
+        <div class="form-content">
+            <label class="label">Name</label>
+            <input class="input" name="Name" type="text" placeholder="Name"/>
+        </div>
+        
+        <div class="form-content">
+            <label class="label">Email</label>
+            <input class="input" name="Location" type="text" placeholder="johndoe@exmaple.com"/>
+        </div>
+        <div class="form-content">
+            <label class="label">Inquiry Type</label>
+            <select class="input" name="inquiry_type">
+                <dropdown>
+                <option value="sales">sales</option>
+                <option value="management">management</option>
+                <option value="service">service</option>
+                <option value="bugs">bugs</option>
+            </dropdown>
+            </select>
+        </div>
+        <div class="form-content">
+            <label class="label">Question</label>
+            <textarea class="input1" name="Description" placeholder="Ask a question."></textarea>
+        </div>
+    </form>
+    </div>
+    
+</div>
+    
+    
+{% endblock %}
